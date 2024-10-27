@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PRD.Models.Product>
+
+<h2>Products</h2>
+<a asp-action="Create">Add New Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductId</th>
+            <th>ProductName</th>
+            <th>CategoryId</th>
+            <th>CategoryName</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.CategoryId</td>
+                <td>@product.Category.CategoryName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@product.ProductId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@product.ProductId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

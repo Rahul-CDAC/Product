@@ -1,0 +1,29 @@
+﻿@model PRD.Models.Product
+
+<h2>Delete Product</h2>
+
+<p>Are you sure you want to delete this product?</p>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>ProductId</dt>
+        <dd>@Model.ProductId</dd>
+
+        <dt>ProductName</dt>
+        <dd>@Model.ProductName</dd>
+
+        <dt>CategoryId</dt>
+        <dd>@Model.CategoryId</dd>
+
+        <dt>CategoryName</dt>
+        <dd>@Model.Category.CategoryName</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="ProductId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
